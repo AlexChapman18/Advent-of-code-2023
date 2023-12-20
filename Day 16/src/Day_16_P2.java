@@ -1,16 +1,28 @@
-import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Day_16_P1 {
+public class Day_16_P2 {
     public static void main(String[] args) {
         char[][] grid = readFile("Day 16/src/input_P1.txt");
-        Map map = new Map(grid, -1, 0, 'E');
 
+        int biggest = 0;
+        // 7043
+
+        for (int i = 0; i < grid.length; i++) {
+            Map map = new Map(grid, i, -1, 'S');
+            int val = processMap(map);
+            if (val > biggest){
+                biggest = val;
+            }
+        }
+        System.out.println(biggest);
+    }
+
+    private static int processMap(Map map) {
         int counter = 0;
-        while (counter < 700) {
+        while (counter < 750) {
             map.tick();
             counter ++;
         }
@@ -23,6 +35,7 @@ public class Day_16_P1 {
             }
         }
         System.out.println(total);
+        return total;
     }
 
 
