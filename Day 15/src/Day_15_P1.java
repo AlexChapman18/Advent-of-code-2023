@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class Day15P1 {
+public class Day_15_P1 {
 
     public static void main(String[] args) {
         try {
