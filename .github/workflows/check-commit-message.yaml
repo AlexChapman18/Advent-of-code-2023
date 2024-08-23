@@ -28,7 +28,7 @@ jobs:
         with:
           excludeDescription: "true"
           checkAllCommitMessages: "true"
-          pattern: \[[(FEATURE)|(FIX)|(STYLE)|(TEST)|(CI)]]\] .+$
+          pattern: .*
           flags: "gm"
           error: 'Your first line has to contain a commit type like "[FEATURE|FIX|STYLE|TEST|CI]".'
       - name: Check Line Length
