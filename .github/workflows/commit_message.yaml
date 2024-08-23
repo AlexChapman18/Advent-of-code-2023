@@ -1,5 +1,6 @@
-name: "Commit Message Check"
-on:
+name: "Commit Message Check" # Name of workfloat
+
+on: # When any of the below happen, run the jobs
   pull_request:
     types:
       - opened
@@ -27,9 +28,9 @@ jobs:
         with:
           excludeDescription: "true"
           checkAllCommitMessages: "true"
-          pattern: \[[^]]+\] .+$
+          pattern: \[[(FEATURE)|(FIX)|(STYLE)|(TEST)|(CI)]]\] .+$
           flags: "gm"
-          error: 'Your first line has to contain a commit type like "[BUGFIX|CI|FEATURE]".'
+          error: 'Your first line has to contain a commit type like "[FEATURE|FIX|STYLE|TEST|CI]".'
       - name: Check Line Length
         uses: gsactions/commit-message-checker@v2
         with:
