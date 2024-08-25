@@ -26,7 +26,7 @@ jobs:
       - name: Check Commit Type
         uses: gsactions/commit-message-checker@v2
         with:
-          pattern: ^\[(FEATURE|FIX|STYLE|TEST|CI)\].{10}
+          pattern: ^\[(Day \d+-\d+)|(OTHER)\].{5}
           error: 'Your first line has to contain a commit type like "[FEATURE|FIX|STYLE|TEST|CI]".'
           excludeDescription: "true" # optional: this excludes the description body of a pull request
           excludeTitle: "true" # optional: this excludes the title of a pull request
