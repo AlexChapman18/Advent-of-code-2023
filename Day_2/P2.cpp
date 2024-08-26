@@ -43,37 +43,37 @@ int main() {
     int total = 0;
 
     while (getline(cin, puzzle_line)) {
-        bool is_valid = true;
+        // Set the minimum needed to 0
+        int min_red = 0;
+        int min_green = 0;
+        int min_blue = 0;
 
         // regex for the red values and check if they are valid
         vector<int> red_values = regex_for_values(puzzle_line, RED_r);
         for (int value : red_values) {
-            if (value > RED_MAX) {
-                is_valid = false;
+            if (value > min_red) {
+                min_red = value;
             }
         }
 
         // regex for the green values and check if they are valid
         vector<int> green_values = regex_for_values(puzzle_line, GREEN_r);
         for (int value : green_values) {
-            if (value > GREEN_MAX) {
-                is_valid = false;
+            if (value > min_green) {
+                min_green = value;
             }
         }
 
         // regex for the blue values and check if they are valid
         vector<int> blue_values = regex_for_values(puzzle_line, BLUE_r);
         for (int value : blue_values) {
-            if (value > BLUE_MAX) {
-                is_valid = false;
+            if (value > min_blue) {
+                min_blue = value;
             }
         }
 
-        // If all the values are valid, find the game ID and add it total
-        if (is_valid) {
-            int game_id = regex_for_values(puzzle_line, ID_r)[0];
-            total += game_id;
-        }
+        // Multiply the minimum needed for each and add to total
+        total += (min_red * min_green * min_blue);
     }
     cout << total;
     cout << "\n----End----\n";
