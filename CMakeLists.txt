@@ -5,6 +5,7 @@ project(Advent-of-code-2023 LANGUAGES CXX)
 add_executable(Day_1_P1 Day_1/P1.cpp)
 add_executable(Day_1_P2 Day_1/P2.cpp)
 add_executable(Day_2_P1 Day_2/P1.cpp)
+add_executable(Day_2_P2 Day_2/P2.cpp)
 
 add_library(MyProject INTERFACE) # Create and empty library
 target_compile_features(MyProject INTERFACE cxx_std_17) # Specify the C++ version
